@@ -30,12 +30,12 @@
 		<div id="expertOpinion">EXPERT OPINION</div>
 		<button class="btn btn-inverse">HOT</button>
 		<button class="btn btn-inverse">NEW</button>
-		<form id="ask" class="form-inline" role="form">
-			<input type="text" class="input-large search-query" placeholder="Ask An Expert!">
-			<select style="width:80px">
+		<form id="ask" class="form-inline" role="form" ng-submit='ask()'>
+			<input type="text" class="input-large search-query" placeholder="Ask An Expert!" ng-model='title'>
+			<select style="width:80px" ng-model='category'>
 				<option>Health</option>
-				<option>Health</option>
-				<option>Health</option>
+				<option>Science</option>
+				<option>Fitness</option>
 			</select>
 			<button type="submit" class="btn btn-inverse">Ask</button>
 		</form>
@@ -47,19 +47,27 @@
 	
 	<div class="slide slide{{indexOf(question)}}" data-slide="{{indexOf(question)}}" data-stellar-background-ratio="0.5"  ng-repeat="question in questions">
     
-		<div class="wrapper">
-		  <div class="question">{{question.title}}</div>
-		  <button class="upvote btn btn-success" ng-click="upvote(question)"><i class="icon-arrow-up"></i></button>
-		  <button class="downvote btn btn-success" ng-click="downvote(question)"><i class="icon-arrow-down"></i></button>
-		  <span class="category label label-inverse">CATEGORY: HEALTH</span>
-		  <span class="author label">AUTHOR: {{question.asker}}</span>
-		</div>
-		
-		<a class="button" data-slide="2" title=""></a>
 
-	</div>
+    <div class="wrapper">
+      <div class="question">{{question.title}}</div>
+      <button class="upvote btn btn-{{button_color[indexOf(question)-1]}}" ng-click="upvote(question)"><i class="icon-arrow-up icon-white"></i></button>
+      <button class="downvote btn btn-{{button_color[indexOf(question)-1]}}" ng-click="downvote(question)"><i class="icon-arrow-down icon-white"></i></button>
+      <span class="category label label-inverse">CATEGORY: {{question.category}}</span>
+      <span class="author label">AUTHOR: {{question.asker}}</span>
+      
+    </div>
+    
+    <div class="info">
+      <div class="answerHeader">ANSWER</div>
+    </div>
+    
+    <a class="button" data-slide="1" title=""></a>
+
+  </div>
 	
-	<div class="slide slide1" data-slide="1" data-stellar-background-ratio="0.5">
+
+	
+	<div class="slide slide2" data-slide="1" data-stellar-background-ratio="0.5">
 		<div class="wrapper">
 			<div class="question">Is coffee bad for you?</div>
 			<div class="voteCount">+300</div>
@@ -86,7 +94,7 @@
 			</div>
 		</div>
 
-		<a class="button" data-slide="2" title=""></a>
+		<a class="downButton" data-slide="2" title=""></a>
 	</div>
 	<!--End Slide 1-->
 	
@@ -96,7 +104,7 @@
 		<div class="wrapper">
 
 		</div>
-		<a class="button" data-slide="3" title=""></a>
+		<a class="downButton" data-slide="3" title=""></a>
 
 	</div>
 	<!--End Slide 2-->
@@ -107,7 +115,7 @@
 		<div class="wrapper">
 			
 		</div>
-		<a class="button" data-slide="4" title=""></a>
+		<a class="downButton" data-slide="4" title=""></a>
 
 	</div>
 	<!--End Slide 3-->
@@ -116,7 +124,7 @@
 		<div class="wrapper">
 			
 		</div>
-		<a class="button" data-slide="4" title=""></a>
+		<a class="downButton" data-slide="4" title=""></a>
 
 	</div>
 	<!--End Slide 3-->

@@ -2,10 +2,10 @@
 /* CSS Document */
 
 html,body{
-	width:100%;
-	height:100%;
-	margin:0px;
-	font-family: 'Actor' sans-serif;
+        width:100%;
+        height:100%;
+        margin:0px;
+        font-family: 'Actor' sans-serif;
 }
 
 
@@ -13,150 +13,152 @@ html,body{
     HEADER
 ******************************/
 .header{
-	position:fixed;
-	height:60px;
-	width:100%;
-	background:black;
-	opacity:0.8;
-	top:0px;
-	z-index:1;
+        position:fixed;
+        height:60px;
+        width:100%;
+        background:black;
+        opacity:0.8;
+        top:0px;
+        z-index:1;
 }
 .header > div{
-	position:relative;
-	top:10px;
-	width:1020px;
-	height:30px;
-	
-	margin:auto;
+        position:relative;
+        top:10px;
+        width:1020px;
+        height:30px;
+        
+        margin:auto;
 }
 #expertOpinion{
-	position:relative;
-	display:inline-block;
-	color:white;
-	font-weight:bold;
-	font-size:30px;
-	top:10px;
-	margin-right:50px;
+        position:relative;
+        display:inline-block;
+        color:white;
+        font-weight:bold;
+        font-size:30px;
+        top:10px;
+        margin-right:50px;
 }
 #ask{
-	position:absolute;
-	top:5px;
-	right:0px;
-	color:white;
+        position:absolute;
+        top:5px;
+        right:0px;
+        color:white;
 }
 
 
 
 
 /******************************
-	QUESTION MAIN
+        QUESTION MAIN
 ******************************/
 .slide{
-	background-attachment: fixed;
-	width:100%;
-	height:160px;
-	position: relative;
-	box-shadow:inset 0px 10px 10px rgba(0,0,0,0.3);
+        background-attachment: fixed;
+        width:100%;
+        height:160px;
+        position: relative;
+        box-shadow:inset 0px 10px 10px rgba(0,0,0,0.3);
 }
 body:nth-child(2){
 
-	margin-top:60px;
+        margin-top:60px;
 }
 
 .wrapper{
-	width:960px;
-	height:60px;
-	margin:0 auto;
-	position:relative;
-	top:20px;
-	background:rgba(255,255,255,0.5);
-	border-radius:20px;
-	padding:30px;
+        width:960px;
+        height:60px;
+        margin:0 auto;
+        position:relative;
+        top:20px;
+        background:rgba(255,255,255,0.5);
+        border-radius:20px;
+        padding:30px;
 }
-`		position:absolute;
-	font-weight:bold;
-	text-align:left;
-	left:100px;
-	top:35px;
-	font-size:32px;
+.question{
+        position:absolute;
+        font-weight:bold;
+        text-align:left;
+        left:100px;
+        top:35px;
+        font-size:32px;
 }
 .voteCount{
-	position:absolute;
-	left:100px;
-	top:70px;
-	color:rgba(130,130,130,0.8);
-	font-weight:bold;
-	font-size:20px;
+        position:absolute;
+        left:100px;
+        top:70px;
+        color:grey;
+        font-weight:bold;
+        font-size:20px;
+        opacity:0.6;
 }
 .upvote{
-	position:absolute;
-	left:30px;
-	top:25px;
+        position:absolute;
+        left:30px;
+        top:25px;
 }
 .downvote{
-	position:absolute;
-	left:30px;
-	bottom:25px;  
+        position:absolute;
+        left:30px;
+        bottom:25px;
 }
 .yesButton{
-	position:absolute;
-	left:785px;
-	top:25px;
+        position:absolute;
+        left:800px;
+        top:25px;
 }
 .noButton{
-	position:absolute;
-	left:785px;
-	bottom:25px;
+        position:absolute;
+        left:800px;
+        bottom:25px;
 }
 
 .author{
-	display:inline-block;
-	position:absolute;
-	bottom:30px;
-	right:30px;
+        display:inline-block;
+        position:absolute;
+        bottom:30px;
+        right:30px;
 }
 
 .category{
-	display:inline-block;
-	position:absolute;
-	right:30px;
-	top:30px;
+        display:inline-block;
+        position:absolute;
+        right:30px;
+        top:30px;
 }
 
 
-.button{
-	display:block;
-	width:50px;
-	height:50px;
-	position:absolute;
-	bottom:0px;
-	left:50%;
-	margin-left:-25px;
-	background-color:#333333;
-	background-image:url(../images/arrow.png);
+.downButton{
+        display:block;
+        width:50px;
+        height:50px;
+        position:absolute;
+        bottom:0px;
+        left:50%;
+        margin-left:-25px;
+        background-color:#333333;
+        background-image:url(../images/arrow.png);
 }
 .button:hover{
-	background-color:#494949;
-	cursor:pointer;
+        background-color:#494949;
+        cursor:pointer;
 }
 
 .slide1{
-	background-color:#5c9900;
+        background-color:#5c9900;
 }
 
 .slide2{
-	background-color:#005c99;	
+        background-color:#005c99;        
 }
 
 .slide3{
-	background-color:#b6c10b;
+        background-color:#b6c10b;
 }
 .slide4{
-	background-color:#FF2205;
+        background-color:#FF2205;
 }
 
 /******************************
-	QUESTION INFO
+        QUESTION INFO
 ******************************/
 .info{
 	width:960px;
@@ -174,15 +176,13 @@ body:nth-child(2){
 	text-align:center;
 }
 
-.answerChart{
-	position:absolute;
-	top:80px;
-	left:50px;
+.answer{
+    position:absolute;
 }
 .answerTitle{
 	position:absolute;
+	top:270px;
 	left:70px;
-	top:300px;
-	font-size:36px;
+	font-size:30px;
 	font-weight:bold;
 }

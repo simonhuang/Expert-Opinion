@@ -42,7 +42,7 @@ app.get('/api/questions',api.getQuestions);
 app.get('/api/*',authed);
 
 app.put('/api/question',api.ask);
-app.post('/api/answerQuestion',api.answerQuestion);
+app.post('/api/answer/:id',api.answer);
 app.post('/api/vote/:id',api.voteQuestion);
 
 

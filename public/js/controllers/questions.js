@@ -7,6 +7,7 @@
  
   
   $scope.questions = [];
+  $scope.button_color = ['success','primary','warning','danger'];
   
   $http.get('/api/questions').success(function (data){
 		$scope.questions = data;
@@ -19,15 +20,25 @@
 	  return $scope.questions.indexOf(question)%4+1;
   };
   
-  $scope.ask = function(question,category){
+  $scope.ask = function(){
 	  $http.get('/auth/check').success(function(data){
-		  var q = {'title':question,
-				  'category':category};
-		  
-		  if(data=="true")$http.put('/api/question/',q);
+		  var quest = {'title':$scope.title,
+				  'category':$scope.category};
+		  console.log($scope.category+" "+quest);
+		  if(data=="true")$http.put('/api/question',quest).success(
+				  function(data){
+			  console.log("question");
+		  });
 		  else console.log("not logged in");
 	  });
-  }
+  };
+  
+  $scope.answer = function(question,ans){
+	  $http.get('/auth/check').success(function(data){
+		  if(data=="true")$http.post('/api/answer/'+question.id,{'ans':ans});
+		  else console.log("not logged in");
+	  });
+  };
   
   $scope.upvote = function(question){
 	  $http.get('/auth/check').success(function(data){

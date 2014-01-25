@@ -4,10 +4,40 @@
 
 
 
-var db = {'questions':[{'id':1, 
+var db = {'questions':[{'id':0, 
 	'asker':'Simon huanger',
 	'title':'Is coffee good for you?',
 	'num_yes':17,
+	'num_no':3,
+	'num_up':10,
+	'num_down':3,
+	'value_yes':16.123,
+	'value_no':12.3,
+	'category':'Health'},
+	{'id':1, 
+	'asker':'Tom troll',
+	'title':'Could a woodchuck chuck wood?',
+	'num_yes':100,
+	'num_no':3,
+	'num_up':10,
+	'num_down':3,
+	'value_yes':16.123,
+	'value_no':12.3,
+	'category':'Science'},
+	{'id':1, 
+	'asker':'Peter Gok',
+	'title':'Am I pretty?',
+	'num_yes':100,
+	'num_no':3,
+	'num_up':10,
+	'num_down':3,
+	'value_yes':16.123,
+	'value_no':12.3,
+	'category':'Science'},
+	{'id':1, 
+	'asker':'Stephen Hawkings',
+	'title':'Do black holes exist?',
+	'num_yes':100,
 	'num_no':3,
 	'num_up':10,
 	'num_down':3,
@@ -31,15 +61,15 @@ exports.voteQuestion = function (req,res){
 
 
 exports.ask = function(req,res){
-	var q = res.body;
+	var q = req.body;
 	console.log("ASK"+q);
-	q.id = db.question.length;
+	q.id = db.questions.length;
 	q.num_yes = 0;
 	q.num_no = 0;
 	q.value_yes = 0;
 	q.value_no = 0;
 	q.asker = req.user.name;
-	db.question.push(q);
+	db.questions.push(q);
 };
 
 exports.loginUser = function(accessToken, refreshToken, profile, done){
@@ -72,16 +102,21 @@ exports.getUser = function (id){
 	return null;
 };
 
-exports.answerQuestion = function (req,res){
+exports.answer = function (req,res){
 	console.log('ANSWER:');
 	var questionID = req.params.id;
 	for(var i=0;i<db.questions.length;i++){
 		if(db.questions[i]==questionID){
-			db.questions[i].num_up+= req.user.power*(req.body);
+			if(req.body.ans==0){
+				db.questions[i].num_up++;
+				db.questions[i].value_yes+=req.user.power;
+			}
+			else {
+				db.questions[i].num_down++;
+				db.questions[i].value_no += req.user.power;
+			}
 		}
 	}
-	
-	
 };
 
 
