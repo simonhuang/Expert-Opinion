@@ -5,12 +5,12 @@ html,body{
 	width:100%;
 	height:100%;
 	margin:0px;
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Actor' sans-serif;
 }
 
 
 /******************************
-headerIGATION
+    HEADER
 ******************************/
 .header{
 	position:fixed;
@@ -78,8 +78,17 @@ body:nth-child(2){
 	font-weight:bold;
 	text-align:left;
 	left:100px;
-	top:50px;
+	top:35px;
 	font-size:32px;
+}
+.voteCount{
+	position:absolute;
+	left:100px;
+	top:70px;
+	color:grey;
+	font-weight:bold;
+	font-size:20px;
+	opacity:0.6;
 }
 .upvote{
 	position:absolute;
@@ -91,6 +100,17 @@ body:nth-child(2){
 	left:30px;
 	bottom:25px;
 }
+.yesButton{
+	position:absolute;
+	left:800px;
+	top:25px;
+}
+.noButton{
+	position:absolute;
+	left:800px;
+	bottom:25px;
+}
+
 .author{
 	display:inline-block;
 	position:absolute;
@@ -142,7 +162,7 @@ body:nth-child(2){
 ******************************/
 .info{
 	width:960px;
-	height:200px;
+	height:300px;
 	margin:0 auto;
 	top:60px;
 	position:relative;
@@ -154,4 +174,8 @@ body:nth-child(2){
 	font-weight:bold;
 	font-size:30px;
 	text-align:center;
+}
+
+.answer{
+	position:absolute;
 }
