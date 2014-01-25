@@ -116,22 +116,18 @@ QUESTION
 	cursor:pointer;
 }
 
-/******************************
- SLIDE 1 
-*******************************/
-#slide1{
+.slide1{
 	background-color:#5c9900;
 }
-/******************************
- SLIDE 2 
-*******************************/
-#slide2{
+
+.slide2{
 	background-color:#005c99;	
 }
-/******************************
- SLIDE 3 
-*******************************/
-#slide3{
+
+.slide3{
 	background-color:#b6c10b;
+}
+.slide4{
+	background-color:#FF2205;
 }
 
