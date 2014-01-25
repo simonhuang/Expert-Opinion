@@ -24,15 +24,30 @@ jQuery(document).ready(function ($) {
 	
 	$('.slide').click(function(){
 		var height = $( this ).css( "height" );
-		if (height === "500px"){
+		if (height === "600px"){
 			$(this).animate({"height":"160px"}, 500);
-			isOpen[0]=false;
 		}
 		else{
-			$(this).animate({"height":"500px"}, 500);
-			isOpen[0]=true;
+			$(this).animate({"height":"600px"}, 500);
 		}
 	});
+	
+	
+	var data = [
+		{
+			value: 30,
+			color:"#43e64d"
+		},
+		{
+			value : 80,
+			color : "#fa5d48"
+		}		
+	];
+				
 
+	var ctx = document.getElementById("myChart").getContext("2d");
+	var myNewChart = new Chart(ctx).Pie(data);
+	
+	
 
 });
