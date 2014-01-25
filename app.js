@@ -37,17 +37,33 @@ app.get('/', function(req,res){
 });
 
 app.get('/api/questions',api.getQuestions);
+
+
+app.get('/api/*',authed);
+
+app.put('/api/question',api.ask);
 app.post('/api/answerQuestion',api.answerQuestion);
+app.post('/api/vote/:id',api.voteQuestion);
 
-app.put('/api/question',api.putQuestion);
-app.post('/api/vote:id',api.voteQuestion);
 
+//TEST AUTH
 app.get('/nudes',authed);
 
 app.get('/nudes',function(req,res){
 	res.send('( . Y . )');
 });
 
+//AUTH CHECK
+
+app.get('/auth/check',function(req,res){
+	if(req.isAuthenticated()){
+		res.json(true);
+	}else {
+		res.json(false);
+	}
+});
+
+//REDIRECT LOGIN
 app.get('/login',function(req,res){
 	res.send("Plz login");
 });

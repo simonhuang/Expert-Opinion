@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="app">
 <head>
 	<meta charset="utf-8">
-	<title>Create a Parralax Website using Stellar.js</title>
+	<title>Expert Opinion</title>
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
@@ -13,11 +13,14 @@
 	<script type="text/javascript" src="js/js.js"></script>
 	<script type="text/javascript" src="js/jquery.stellar.min.js"></script>
 	<script type="text/javascript" src="js/waypoints.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="js/vendor/angular/angular.js"></script>
+	<script type="text/javascript" src="js/controllers/app.js"></script>
+	<script type="text/javascript" src="js/controllers/questions.js"></script>
+	
 
 </head>
 
-<body>
+<body ng-controller='QuestionController'>
 
 	<div class="header">
 	<div>
@@ -29,7 +32,19 @@
 	</div>
 	</div>
 	
-	
+	<div class="slide slide{{indexOf(question)}}" data-slide="{{indexOf(question)}}" data-stellar-background-ratio="0.5"  ng-repeat="question in questions">
+    
+    <div class="wrapper">
+      <div class="question">{{question.title}}</div>
+      <button class="upvote btn btn-success" ng-click="upvote(question)"><i class="icon-arrow-up"></i></button>
+      <button class="downvote btn btn-success" ng-click="downvote(question)"><i class="icon-arrow-down"></i></button>
+      <span class="category label label-inverse">CATEGORY: HEALTH</span>
+      <span class="author label">AUTHOR: {{question.asker}}</span>
+    </div>
+    
+    <a class="button" data-slide="2" title=""></a>
+
+  </div>
 	
 	<div style="margin-top:60px">
 	<div class="slide slide1" data-slide="1" data-stellar-background-ratio="0.5">

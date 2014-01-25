@@ -57,6 +57,9 @@ QUESTION
 	position: relative;
 	box-shadow:inset 0px 10px 10px rgba(0,0,0,0.3);
 }
+body:nth-child(2){
+  margin-top:60px;
+ }
 .wrapper{
 	width:960px;
 	height:60px;
