@@ -19,23 +19,25 @@
 
 <body>
 
-	<div class="nav">
-	<ul>
-		<li data-slide="1">Page 1</li>
-		<li data-slide="2">Page 2</li>
-		<li data-slide="3">Page 3</li>
-		<li data-slide="4">Page 4</li>
-	</ul>
+	<div class="header">
+	<div>
+		<div id="expertOpinion">EXPERT OPINION</div>
+		<form id="ask">
+			<input type="text" class="input-large search-query" placeholder="Ask An Expert!">
+			<button type="submit" class="btn btn-inverse">Ask</button>
+		</form>
 	</div>
+	</div>
+	
+	
+	
 	<div style="margin-top:60px">
 	<div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.5">
 		
 		<div class="wrapper">
 			<div class="question">Is coffee bad for you?</div>
-			<div class="answer">
-				<button class="btn btn-success">+</button>
-				<button class="btn btn-success">-</button>
-			</div>
+			<button class="upvote btn btn-success"><i class="icon-arrow-up"></i></button>
+			<button class="downvote btn btn-success"><i class="icon-arrow-down"></i></button>
 			<span class="category label label-inverse">CATEGORY: HEALTH</span>
 			<span class="author label">AUTHOR: Tom Troll</span>
 		</div>
@@ -71,16 +73,6 @@
 
 
 
-
-
-
-	<div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0">
-
-	</div>
-	<!--End Slide 4-->
-
-
-	</div>	
 
 
 
