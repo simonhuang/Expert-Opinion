@@ -11,6 +11,20 @@
   
   $http.get('/api/questions').success(function (data){
 		$scope.questions = data;
+		
+		var data = [{
+		    			value: 30,
+		    			color : "#fa5d48"
+		    		},
+		    		{
+		    			value : 80,
+		    			color:"#36BA3F"
+		    		}		
+		    	];
+
+		    	var ctx = document.getElementById("answerChart1").getContext("2d");
+		    	var myNewChart = new Chart(ctx).Pie(data);
+		
 		$scope.questions.forEach(function(item,i){
 			console.log(item);
 		});
@@ -48,11 +62,21 @@
 			  
   };
   
+  $scope.getScore = function(question){
+	  var val = question.num_up - question.num_down;
+	  if(val>=0)return "+"+val;
+	  else return "-"+val;
+  };
+  
   $scope.downvote = function(question){
 	  $http.get('/auth/check').success(function(data){
 		  if(data=="true")$http.post('/api/vote/'+question.id,{'dir':-1});
 		  else console.log("not logged in");
 	  });
+  };
+  
+  $scope.indexQuestion = function(question){
+	  return questions.indexOf(question);
   };
   
   

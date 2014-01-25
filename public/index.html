@@ -50,8 +50,13 @@
 
     <div class="wrapper">
       <div class="question">{{question.title}}</div>
+      <div class="voteCount">{{getScore(question)}}</div>
       <button class="upvote btn btn-{{button_color[indexOf(question)-1]}}" ng-click="upvote(question)"><i class="icon-arrow-up icon-white"></i></button>
       <button class="downvote btn btn-{{button_color[indexOf(question)-1]}}" ng-click="downvote(question)"><i class="icon-arrow-down icon-white"></i></button>
+      
+      <button class="yesButton btn btn-{{button_color[indexOf(question)-1]}}">YES</button>
+      <button class="noButton btn btn-{{button_color[indexOf(question)-1]}}">NO</button>
+      
       <span class="category label label-inverse">CATEGORY: {{question.category}}</span>
       <span class="author label">AUTHOR: {{question.asker}}</span>
       
@@ -59,9 +64,16 @@
     
     <div class="info">
       <div class="answerHeader">ANSWER</div>
+      <canvas class="answerChart" id="answerChart1" data-type="Bar" width="200" height="200"></canvas>
+      
+      <div class="answerTitle">
+        <span style="color:#36BA3F">YES</span>
+        <span style="color:white">-</span>
+        <span style="color:#fa5d48">NO</span>
+      </div>
     </div>
-    
-    <a class="button" data-slide="1" title=""></a>
+
+    <a class="downButton" data-slide="2" title=""></a>
 
   </div>
 	
@@ -85,7 +97,7 @@
 		
 		<div class="info">
 			<div class="answerHeader">ANSWER</div>
-			<canvas class="answerChart" id="answerChart1" data-type="Bar" width="200" height="200"></canvas>
+			<canvas class="answerChart" id="answerChart{{indexQuestion(question)}}" data-type="Bar" width="200" height="200"></canvas>
 			
 			<div class="answerTitle">
 				<span style="color:#36BA3F">YES</span>
