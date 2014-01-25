@@ -1,6 +1,4 @@
 jQuery(document).ready(function ($) {
-
-
     $(window).stellar();
 
     var links = $('.nav').find('li');
@@ -23,6 +21,18 @@ jQuery(document).ready(function ($) {
         goToByScroll(dataslide);
 
     });
+	
+	$('.slide').click(function(){
+		var height = $( this ).css( "height" );
+		if (height === "500px"){
+			$(this).animate({"height":"160px"}, 500);
+			isOpen[0]=false;
+		}
+		else{
+			$(this).animate({"height":"500px"}, 500);
+			isOpen[0]=true;
+		}
+	});
 
 
 });
