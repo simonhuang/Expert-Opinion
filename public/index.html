@@ -4,10 +4,12 @@
 	<meta charset="utf-8">
 	<title>Create a Parralax Website using Stellar.js</title>
 
-	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!--<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,600,400italic,600italic,700,700italic,900' rel='stylesheet' type='text/css'>-->
 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/js.js"></script>
 	<script type="text/javascript" src="js/jquery.stellar.min.js"></script>
 	<script type="text/javascript" src="js/waypoints.min.js"></script>
@@ -25,8 +27,18 @@
 		<li data-slide="4">Page 4</li>
 	</ul>
 	</div>
-
+	<div style="margin-top:60px">
 	<div class="slide" id="slide1" data-slide="1" data-stellar-background-ratio="0.5">
+		
+		<div class="wrapper">
+			<div class="question">Is coffee bad for you?</div>
+			<div class="answer">
+				<button class="btn btn-success">+</button>
+				<button class="btn btn-success">-</button>
+			</div>
+			<span class="category label label-inverse">CATEGORY: HEALTH</span>
+			<span class="author label">AUTHOR: Tom Troll</span>
+		</div>
 		
 		<a class="button" data-slide="2" title=""></a>
 
@@ -38,18 +50,7 @@
 	<div class="slide" id="slide2" data-slide="2" data-stellar-background-ratio="0.5">
 		<div class="wrapper">
 
-			<img src="images/slide2/blur-ball.png" data-stellar-ratio="3" data-stellar-vertical-offset="-55"alt="">
-			<img src="images/slide2/blur-ball-big.png" data-stellar-ratio="1" data-stellar-vertical-offset="-102"alt="">
-			<img src="images/slide2/focus-ball.png" data-stellar-ratio="1.5" data-stellar-vertical-offset="-53"alt="">
-			<img src="images/slide2/small-ball.png" data-stellar-ratio="2.7" data-stellar-vertical-offset="-25"alt="">
-			<img src="images/slide2/blur-ball.png" data-stellar-ratio="3" data-stellar-vertical-offset="-55"alt="">
-			<img src="images/slide2/blur-ball-big.png" data-stellar-ratio="1" data-stellar-vertical-offset="-102"alt="">
-			<img src="images/slide2/focus-ball.png" data-stellar-ratio="1.5" data-stellar-vertical-offset="-53"alt="">
-			<img src="images/slide2/small-ball.png" data-stellar-ratio="2.7" data-stellar-vertical-offset="-25"alt="">	
-
 		</div>
-
-		<span class="slideno">Slide 2</span>
 		<a class="button" data-slide="3" title=""></a>
 
 	</div>
@@ -61,9 +62,8 @@
 
 	<div class="slide" id="slide3" data-slide="3" data-stellar-background-ratio="0.5">
 		<div class="wrapper">
+			
 		</div>
-
-		<span class="slideno">Slide 3</span>
 		<a class="button" data-slide="4" title=""></a>
 
 	</div>
@@ -76,18 +76,11 @@
 
 	<div class="slide" id="slide4" data-slide="4" data-stellar-background-ratio="0">
 
-		<span class="slideno">Slide 4</span>
-
 	</div>
 	<!--End Slide 4-->
 
 
-			
-
-
-
-
-
+	</div>	
 
 
 
