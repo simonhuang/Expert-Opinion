@@ -9,7 +9,7 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var passport = require ("passport");
-var FacebookStrategy = require('passport-facebook').Strategy;
+var FacebookStrategy = require('./passport-facebook').Strategy;
 var api = require('./api');
 
 var app = express();
@@ -43,7 +43,7 @@ app.get('/api/*',authed);
 
 app.put('/api/question',api.ask);
 app.post('/api/answer/:id',api.answer);
-app.post('/api/vote/:id',api.voteQuestion);
+app.post('/api/vote/:id',api.vote);
 
 
 //TEST AUTH
@@ -73,7 +73,8 @@ app.get('/login',function(req,res){
 passport.use(new FacebookStrategy({
     clientID: "1400104933575881",
     clientSecret: "3e0e4606b3c952eafe555bca81fe9061",
-    callbackURL: "http://localhost:3000/auth/facebook/callback"
+    callbackURL: "http://localhost:3000/auth/facebook/callback",
+    profileFields: ['id', 'displayName','movies','education','books','work']
   },api.loginUser));
   /*
   function(accessToken, refreshToken, profile, done) {
@@ -94,7 +95,7 @@ passport.use(new FacebookStrategy({
   }
 ));*/
 
-app.get("/auth/facebook", passport.authenticate("facebook",{ scope : "email"}));
+app.get("/auth/facebook", passport.authenticate("facebook",{ scope : ["user_actions.books"]}));
 app.get("/auth/facebook/callback",
 	    passport.authenticate("facebook",{ failureRedirect: '/login'}),
 	    function(req,res){

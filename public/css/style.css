@@ -44,6 +44,11 @@ html,body{
         right:0px;
         color:white;
 }
+#loginButton{
+	position:relative;
+	top:4px;
+	left:50px;
+}
 
 
 
@@ -85,10 +90,9 @@ body:nth-child(2){
         position:absolute;
         left:100px;
         top:70px;
-        color:grey;
+        color:rgba(130,130,130,0.8);
         font-weight:bold;
         font-size:20px;
-        opacity:0.6;
 }
 .upvote{
         position:absolute;
@@ -102,26 +106,28 @@ body:nth-child(2){
 }
 .yesButton{
         position:absolute;
-        left:800px;
+        right:20px;
         top:25px;
+        width:50px;
 }
 .noButton{
         position:absolute;
-        left:800px;
+        right:20px;
         bottom:25px;
+        width:50px;
 }
 
 .author{
         display:inline-block;
         position:absolute;
         bottom:30px;
-        right:30px;
+        right:80px;
 }
 
 .category{
         display:inline-block;
         position:absolute;
-        right:30px;
+        right:80px;
         top:30px;
 }
 
@@ -179,10 +185,68 @@ body:nth-child(2){
 .answer{
     position:absolute;
 }
+.answerChart{
+	position:relative;
+	top:20px;
+	left:20px;
+}
 .answerTitle{
 	position:absolute;
-	top:270px;
-	left:70px;
-	font-size:30px;
+	top:290px;
+	left:50px;
+	font-size:24px;
 	font-weight:bold;
+}
+
+
+.levelChart{
+	position:relative;
+	top:30px;
+	left:20px;
+}
+.levelTitle{
+	position:absolute;
+	top:290px;
+	left:340px;
+	font-size:24px;
+	font-weight:bold;
+}
+
+.comments{
+	border:15px solid white;
+	border-radius:10px;
+	position:absolute;
+	height: 160px;
+	width:380px;
+	overflow: auto;
+	background-color:rgba(255,255,255,0.5);
+	top:80px;
+	right:30px;
+	padding:0px;
+}
+.commentsTitle{
+	position:absolute;
+	top:290px;
+	left:700px;
+	font-size:24px;
+	font-weight:bold;
+		
+}
+
+.comments ul li{
+	list-style:none;
+	padding:0px;
+	margin-left:-22px;
+}
+.comments ul li h3{
+	font-size:16px;
+	background-color:#36BA3F;
+	border-radius:3px;
+	padding:2px;
+	line-height:1.2em;
+}
+.comments ul li p{
+	font-size:11px;
+	line-height:1em;
+	margin-left:10px;
 }

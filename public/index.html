@@ -20,6 +20,8 @@
 	<script type="text/javascript" src="js/controllers/app.js"></script>
 	<script type="text/javascript" src="js/controllers/questions.js"></script>
 	
+	<script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+	
 
 </head>
 
@@ -28,12 +30,15 @@
 	<div class="header">
 	<div>
 		<div id="expertOpinion">EXPERT OPINION</div>
-		<button class="btn btn-inverse">HOT</button>
-		<button class="btn btn-inverse">NEW</button>
+		<button class="btn btn-inverse" ng-click="sortByHot()">HOT</button>
+		<button class="btn btn-inverse" ng-click="sortByNew()">NEW</button>
+		
+		<a id="loginButton" href="http://localhost:3000/auth/facebook" ><img src="images/fb-login-button.png" alt="" ng-show="!authed"></a>
+		
 		<form id="ask" class="form-inline" role="form" ng-submit='ask()'>
 			<input type="text" class="input-large search-query" placeholder="Ask An Expert!" ng-model='title'>
-			<select style="width:80px" ng-model='category'>
-				<option>Health</option>
+			<select style="width:80px"  ng-model='category'>
+				<option selected="selected">Health </option>
 				<option>Science</option>
 				<option>Fitness</option>
 			</select>
@@ -54,8 +59,8 @@
       <button class="upvote btn btn-{{button_color[indexOf(question)-1]}}" ng-click="upvote(question)"><i class="icon-arrow-up icon-white"></i></button>
       <button class="downvote btn btn-{{button_color[indexOf(question)-1]}}" ng-click="downvote(question)"><i class="icon-arrow-down icon-white"></i></button>
       
-      <button class="yesButton btn btn-{{button_color[indexOf(question)-1]}}">YES</button>
-      <button class="noButton btn btn-{{button_color[indexOf(question)-1]}}">NO</button>
+      <button class="yesButton btn btn-{{button_color[indexOf(question)-1]}}" ng-click="answer(question,1)">YES</button>
+      <button class="noButton btn btn-{{button_color[indexOf(question)-1]}}" ng-click="answer(question,0)">NO</button>
       
       <span class="category label label-inverse">CATEGORY: {{question.category}}</span>
       <span class="author label">AUTHOR: {{question.asker}}</span>
@@ -63,83 +68,77 @@
     </div>
     
     <div class="info">
-      <div class="answerHeader">ANSWER</div>
-      <canvas class="answerChart" id="answerChart1" data-type="Bar" width="200" height="200"></canvas>
-      
-      <div class="answerTitle">
-        <span style="color:#36BA3F">YES</span>
-        <span style="color:white">-</span>
-        <span style="color:#fa5d48">NO</span>
-      </div>
-    </div>
-
-    <a class="downButton" data-slide="2" title=""></a>
-
-  </div>
-	
-
-	
-	<div class="slide slide2" data-slide="1" data-stellar-background-ratio="0.5">
-		<div class="wrapper">
-			<div class="question">Is coffee bad for you?</div>
-			<div class="voteCount">+300</div>
-			
-			<button class="upvote btn btn-success"><i class="icon-arrow-up icon-white"></i></button>
-			<button class="downvote btn btn-success"><i class="icon-arrow-down icon-white"></i></button>
-			
-			<button class="yesButton btn btn-success">YES</button>
-			<button class="noButton btn btn-success">NO</button>
-			
-			
-			<span class="category label label-inverse">CATEGORY: HEALTH</span>
-			<span class="author label">AUTHOR: Tom Troll</span>
-		</div>
+		<div class="answerHeader">ANSWER</div>
 		
-		<div class="info">
-			<div class="answerHeader">ANSWER</div>
-			<canvas class="answerChart" id="answerChart{{indexQuestion(question)}}" data-type="Bar" width="200" height="200"></canvas>
-			
-			<div class="answerTitle">
-				<span style="color:#36BA3F">YES</span>
-				<span style="color:white">-</span>
-				<span style="color:#fa5d48">NO</span>
-			</div>
+		
+		<canvas class="answerChart" id="answerChart{{indexQuestion(question)}}" data-type="Pie" width="200" height="200"></canvas>
+		
+		
+		<div class="answerTitle">
+        <span style="color:#36BA3F">YES {{getYesPerc(question)}}%</span>
+        <span style="color:white">-</span>
+        <span style="color:#fa5d48">NO {{getNoPerc(question)}}%</span>
+      </div>
+      
+      <canvas class="levelChart" id="levelChart{{indexQuestion(question)}}" data-type="Bar" width="300" height="180"></canvas>
+      
+      <div class="levelTitle">
+        DISTRIBUTION
+      </div>
+      
+      <div class="comments">
+      <ul>
+          <li>
+          <h3>Author</h3>
+          <p>comment comment comment comment comment 
+          comment comment comment comment comment comment comment 
+          comment comment comment comment comment </p>
+          </li>
+          <li>
+          <h3>Author</h3>
+          <p>comment comment comment comment comment 
+          comment comment comment comment comment comment comment 
+          comment comment comment comment comment </p>
+          </li>
+          <li>
+          <h3>Author</h3>
+          <p>comment comment comment comment comment 
+          comment comment comment comment comment comment comment 
+          comment comment comment comment comment </p>
+          </li>
+        </ul>
+      </div>
+      <div class="commentsTitle">
+        COMMENTS
+      </div>
+		
+		
 		</div>
 
 		<a class="downButton" data-slide="2" title=""></a>
-	</div>
-	<!--End Slide 1-->
-	
+
+	  </div>
+	  
+	  <div class="slide slide1" data-slide="3" data-stellar-background-ratio="0.5">
+                <div class="wrapper">
+                        
+                </div>
+                
+        </div>
+	 <div class="slide slide2" data-slide="3" data-stellar-background-ratio="0.5">
+                <div class="wrapper">
+                        
+                </div>
+
+        </div>
+        <div class="slide slide3" data-slide="3" data-stellar-background-ratio="0.5">
+                <div class="wrapper">
+                        
+                </div>
+
+        </div>
 
 	
-	<div class="slide slide2" data-slide="2" data-stellar-background-ratio="0.5">
-		<div class="wrapper">
-
-		</div>
-		<a class="downButton" data-slide="3" title=""></a>
-
-	</div>
-	<!--End Slide 2-->
-
-
-
-	<div class="slide slide3" data-slide="3" data-stellar-background-ratio="0.5">
-		<div class="wrapper">
-			
-		</div>
-		<a class="downButton" data-slide="4" title=""></a>
-
-	</div>
-	<!--End Slide 3-->
-
-	<div class="slide slide4" data-slide="3" data-stellar-background-ratio="0.5">
-		<div class="wrapper">
-			
-		</div>
-		<a class="downButton" data-slide="4" title=""></a>
-
-	</div>
-	<!--End Slide 3-->
 
 </body>
 </html>
