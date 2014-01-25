@@ -2,7 +2,6 @@ jQuery(document).ready(function ($) {
     $(window).stellar();
 
     var links = $('.nav').find('li');
-    slide = $('.slide');
     button = $('.button');
     mywindow = $(window);
     htmlbody = $('html,body');
@@ -22,13 +21,14 @@ jQuery(document).ready(function ($) {
 
     });
 	
-	$('.slide').click(function(){
-		var height = $( this ).css( "height" );
+	button.click(function(){
+		var slide = button.parent()
+		var height = slide.css( "height" );
 		if (height === "600px"){
-			$(this).animate({"height":"160px"}, 500);
+			$(slide).animate({"height":"160px"}, 500);
 		}
 		else{
-			$(this).animate({"height":"600px"}, 500);
+			$(slide).animate({"height":"600px"}, 500);
 		}
 	});
 	
@@ -36,18 +36,16 @@ jQuery(document).ready(function ($) {
 	var data = [
 		{
 			value: 30,
-			color:"#43e64d"
+			color : "#fa5d48"
 		},
 		{
 			value : 80,
-			color : "#fa5d48"
+			color:"#36BA3F"
 		}		
 	];
 				
 
-	var ctx = document.getElementById("myChart").getContext("2d");
+	var ctx = document.getElementById("answerChart1").getContext("2d");
 	var myNewChart = new Chart(ctx).Pie(data);
 	
-	
-
 });
