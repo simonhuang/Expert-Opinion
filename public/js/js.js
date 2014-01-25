@@ -1,5 +1,23 @@
+setTimeout(function(){
+	$('.slide').click(function(){
+		var height = $( this ).css( "height" );
+		if (height === "500px"){
+			$(this).animate({"height":"160px"}, 500);
+		}
+		else{
+			$(this).animate({"height":"500px"}, 500);
+		}
+	});
+}, 1000);
+
 jQuery(document).ready(function ($) {
+	
+	
+	
+	
     $(window).stellar();
+    
+    
 
     var links = $('.nav').find('li');
     slide = $('.slide');
@@ -16,23 +34,14 @@ jQuery(document).ready(function ($) {
     }
 
     button.click(function (e) {
+    	
         e.preventDefault();
         dataslide = $(this).attr('data-slide');
         goToByScroll(dataslide);
 
     });
 	
-	$('.slide').click(function(){
-		var height = $( this ).css( "height" );
-		if (height === "500px"){
-			$(this).animate({"height":"160px"}, 500);
-			isOpen[0]=false;
-		}
-		else{
-			$(this).animate({"height":"500px"}, 500);
-			isOpen[0]=true;
-		}
-	});
+	
 
 
 });
